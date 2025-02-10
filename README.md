@@ -17,7 +17,7 @@ login / logout components introduced in streamlit 1.42.0 / feb 2025
 ```toml
 [auth]
 redirect_uri = "http://localhost:8501/oauth2callback"
-cookie_secret = "jkldhalskjgdasf7o39274jkbdjashvudasjk237898929387dkljahljkgh"
+cookie_secret = "YOUR CRIPTOGRAPHIC COOKIE SECRET"
 
 [auth.google]
 client_id = "YOUR GOOGLE CLOUD AUTHENTICATION ID"
