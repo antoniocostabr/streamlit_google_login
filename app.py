@@ -8,8 +8,10 @@ import dotenv
 dotenv.load_dotenv()
 ALLOWED_DOMAIN = os.getenv('ALLOWED_DOMAIN')
 
+st.title("App title")
+
 if not st.experimental_user.is_logged_in:
-    if st.button("Google Log in"):
+    if st.sidebar.button("Sign in with Google", icon=":material/mail:"):
         st.login(provider="google")
 else:
     if 'email' in st.experimental_user:
@@ -22,13 +24,15 @@ else:
                 time.sleep(3)
             st.logout()
         else:
-            st.image(st.experimental_user.get('picture'))
-            st.write(f"Hello, {st.experimental_user.name}")
-            st.write(f"email, {st.experimental_user.email}")
-            st.write('You are logged in!')
-            
-            if st.button("Log out"):
-                st.logout()
+            with st.sidebar:
+                st.image(st.experimental_user.get('picture'))
+                st.write(f"Hello, {st.experimental_user.name}")
+                st.write(f"email, {st.experimental_user.email}")
+                st.write('You are logged in!')
+                
+                if st.button("Log out"):
+                    st.logout()
 
             # this is where your app logic goes
+            st.subheader("Main logic goes here")
             
